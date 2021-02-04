@@ -14,4 +14,6 @@ const Lights: React.FC = () => {
     )
 }
 
+Lights.displayName = 'Lights'
+
 export default Lights
