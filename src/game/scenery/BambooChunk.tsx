@@ -29,4 +29,6 @@ const BambooChunk: React.FC = () => {
     )
 }
 
+BambooChunk.displayName = 'Bamboo Chunk'
+
 export default BambooChunk

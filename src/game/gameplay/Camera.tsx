@@ -78,6 +78,8 @@ const Camera: React.FC = () => {
     )
 }
 
+Camera.displayName = 'Camera'
+
 const Wrapper: React.FC = () => {
     return (
         <Editable id="camera">

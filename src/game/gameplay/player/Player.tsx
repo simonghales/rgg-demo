@@ -105,4 +105,6 @@ const Player: React.FC = () => {
     )
 }
 
+Player.displayName = 'Player'
+
 export default Player
