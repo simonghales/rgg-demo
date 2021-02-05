@@ -51,7 +51,7 @@ const PlayingWrapper: React.FC<{
                     density: 20,
                 }})
         ],
-    }), {
+    }),{
         fwdRef: ref,
         uuid: 'player',
     })
@@ -61,9 +61,11 @@ const PlayingWrapper: React.FC<{
     useStoreMesh('player', ref.current as Object3D)
 
     return (
-        <group ref={ref}>
-            {children}
-        </group>
+        <>
+            <group ref={ref}>
+                {children}
+            </group>
+        </>
     )
 
 }

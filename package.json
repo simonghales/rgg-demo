@@ -18,7 +18,7 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
     "react-three-fiber": "^5.3.18",
-    "react-three-game-engine": "^0.14.4",
+    "react-three-game-engine": "^0.14.5",
     "rgg-editor": "^0.1.0",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4",

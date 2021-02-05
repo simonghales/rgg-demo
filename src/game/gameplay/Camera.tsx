@@ -13,6 +13,7 @@ import {
 import {CameraHelper} from "three";
 import {useFrame} from "react-three-fiber";
 import {useStoredMesh} from "react-three-game-engine";
+import {lerp} from "../../utils/numbers";
 
 const Camera: React.FC = () => {
 
@@ -53,14 +54,19 @@ const Camera: React.FC = () => {
         cameraRef.current.updateProjectionMatrix()
     }, [fov])
 
-    const onFrame = useCallback(() => {
+    const onFrame = useCallback((state: any, delta: number) => {
         if (followMesh) {
-            cameraRef.current.lookAt(followMesh.position.x, followMesh.position.y, followMesh.position.z + 1.5)
-            groupRef.current.position.x = followMesh.position.x
-            groupRef.current.position.y = followMesh.position.y
-            groupRef.current.position.z = followMesh.position.z
+            let amount = delta * 16
+            amount = amount > 1 ? 1 : amount
+            const targetX = lerp(groupRef.current.position.x, followMesh.position.x, amount)
+            const targetY = lerp(groupRef.current.position.y, followMesh.position.y, amount)
+            const targetZ = lerp(groupRef.current.position.z, followMesh.position.z, amount)
+            cameraRef.current.lookAt(targetX, targetY, targetZ + 1.5)
+            groupRef.current.position.x = targetX
+            groupRef.current.position.y = targetY
+            groupRef.current.position.z = targetZ
         }
-    }, [followMesh])
+    }, [followMesh, isEditMode])
 
     useFrame(onFrame)
 

@@ -9698,10 +9698,10 @@ react-three-fiber@^5.3.18:
     use-asset "^1.0.2"
     utility-types "^3.10.0"
 
-react-three-game-engine@^0.14.4:
-  version "0.14.4"
-  resolved "https://registry.yarnpkg.com/react-three-game-engine/-/react-three-game-engine-0.14.4.tgz#cadbb8ba8da306e787629570e19b24317a79bedb"
-  integrity sha512-Nfz1/80UOgiAb5QpSj3RyH5BeFM7L0y7hsuf23qECsfOgNamdkjTuwxUUAtOmoG+Xml6qMVQpFN5yt9j7Ggseg==
+react-three-game-engine@^0.14.5:
+  version "0.14.5"
+  resolved "https://registry.yarnpkg.com/react-three-game-engine/-/react-three-game-engine-0.14.5.tgz#21a303b90cdcf22925cbe52986fa3a4279703c7f"
+  integrity sha512-aSJdjTF9gQgGNPUqi84GP2pFQVOvxnGzvrj/Nwu+bjrgJhTVK7z3zxrckWqoLCcS2c4qYNmL/vt7rTr6x1wq+A==
   dependencies:
     react-nil "^0.0.3"
     valtio "^0.5.2"
