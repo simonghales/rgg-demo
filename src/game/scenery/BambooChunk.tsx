@@ -5,9 +5,12 @@ import { Box } from "@react-three/drei";
 
 const BambooChunk: React.FC = () => {
 
-    const x = useEditableProp('x', {defaultValue: 0})
-    const y = useEditableProp('y', {defaultValue: 0})
-    const z = useEditableProp('z', {defaultValue: 0})
+    const {x, y, z} = useEditableProp('position', {defaultValue: {
+            x: 0,
+            y: 0,
+            z: 0,
+        }})
+
     const width = useEditableProp('width', {defaultValue: 2})
     const height = useEditableProp('height', {defaultValue: 2})
     const isEditMode = useIsEditMode()

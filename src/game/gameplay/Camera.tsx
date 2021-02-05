@@ -25,15 +25,12 @@ const Camera: React.FC = () => {
     const setDefaultCamera = useSetDefaultCamera()
     const isEditMode = useIsEditMode()
 
-    const x = useEditableProp('x', {
-        defaultValue: 0,
-    })
-    const y = useEditableProp('y', {
-        defaultValue: -20,
-    })
-    const z = useEditableProp('z', {
-        defaultValue: 20,
-    })
+    const {x, y, z} = useEditableProp('position', {defaultValue: {
+            x: 0,
+            y: -20,
+            z: 20,
+        }})
+
     const fov = useEditableProp('fov', {
         defaultValue: 30,
     })
