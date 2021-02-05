@@ -78,7 +78,7 @@ const Player: React.FC = () => {
         z: 0,
     }})
     const speed = useEditableProp('speed', {
-        defaultValue: 9
+        defaultValue: { value: 9, max: 15, min: 5, step: 0.01 }
     })
 
     const isPlaying = !useIsEditMode()
