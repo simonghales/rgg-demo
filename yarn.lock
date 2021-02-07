@@ -9698,10 +9698,10 @@ react-three-fiber@^5.3.18:
     use-asset "^1.0.2"
     utility-types "^3.10.0"
 
-react-three-game-engine@^0.14.5:
-  version "0.14.5"
-  resolved "https://registry.yarnpkg.com/react-three-game-engine/-/react-three-game-engine-0.14.5.tgz#21a303b90cdcf22925cbe52986fa3a4279703c7f"
-  integrity sha512-aSJdjTF9gQgGNPUqi84GP2pFQVOvxnGzvrj/Nwu+bjrgJhTVK7z3zxrckWqoLCcS2c4qYNmL/vt7rTr6x1wq+A==
+react-three-game-engine@^0.14.6-beta.0:
+  version "0.14.6-beta.0"
+  resolved "https://registry.yarnpkg.com/react-three-game-engine/-/react-three-game-engine-0.14.6-beta.0.tgz#897e87461ba22f59eb1158eeef83c5c87f96317f"
+  integrity sha512-rNOrmC+nRTpcYOc7Kc9eBXpqCGgn9oOJbBwGpgK5/HChKXzZTX0nxhC3NI8DBvQPyaJLnSqSLBBUHt2Y3dqeiQ==
   dependencies:
     react-nil "^0.0.3"
     valtio "^0.5.2"
@@ -10131,10 +10131,10 @@ rgba-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
-rgg-editor@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/rgg-editor/-/rgg-editor-0.1.3.tgz#7c0cdcc20b4b062a6009cf6f956006fa31f70e29"
-  integrity sha512-w3ZKsC9hKpYWc5WiajejRIkvU77/rPTUu9PNS1DfboMmVvUunFdi/nOyRwvy5RElbE+a46j4pwzV8GDC+f/p2A==
+rgg-editor@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/rgg-editor/-/rgg-editor-0.1.7.tgz#0d19c3c10ee830309bee4ac91a374c97cab71315"
+  integrity sha512-hQUMo2EEU9FXYHiYEegXX1qP+2tB957HOvBlmQV97hJ3XMIJmyQkmYEU4RpwfX9rR5K1VP6jH29qkMtlFwsNQQ==
   dependencies:
     leva "https://pkg.csb.dev/gsimone/leva/commit/cfe3e89d/leva"
     react-helmet "^6.1.0"

@@ -43,8 +43,8 @@ export const useController = (api: BodyApi, ref: MutableRefObject<Object3D>, spe
             newAngle = angle
         }
 
-        ref.current.position.x += xVel * 5 * delta
-        ref.current.position.y += yVel * 5 * delta
+        // ref.current.position.x += xVel * 5 * delta
+        // ref.current.position.y += yVel * 5 * delta
 
         ref.current.rotation.z = lerpRadians(ref.current.rotation.z, newAngle, delta * 10)
 
@@ -57,7 +57,6 @@ export const useController = (api: BodyApi, ref: MutableRefObject<Object3D>, spe
         const [xVel, yVel] = getMoveVelocity()
 
         velocity.set(xVel * speed * 150 * delta, yVel * speed * 150 * delta)
-
         api.applyLinearImpulse(velocity, v2)
 
     }, [api, getMoveVelocity, speed])

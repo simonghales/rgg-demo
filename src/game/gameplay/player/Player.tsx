@@ -96,7 +96,7 @@ const Player: React.FC = () => {
 
     if (isPlaying) {
         return (
-            <PlayingWrapper x={x} y={y} speed={speed}>
+            <PlayingWrapper x={x} y={y} speed={speed || 0}>
                 {model}
             </PlayingWrapper>
         )
