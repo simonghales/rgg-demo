@@ -26,7 +26,7 @@ const Camera: React.FC = () => {
     const isEditMode = useIsEditMode()
 
     const {x, y, z} = useEditableProp('position', {defaultValue: {
-            x: 0,
+            x: 20,
             y: -20,
             z: 20,
         }})

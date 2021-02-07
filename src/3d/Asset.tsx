@@ -15,7 +15,9 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
             z: 0,
         }})
 
-    const [ref] = useDraggableMesh()
+    const [ref] = useDraggableMesh({
+        translationSnap: 1,
+    })
 
     const [cloned]: any = useState(() => {
         const clonedScene = SkeletonUtils.clone(gltf.scene)
@@ -26,17 +28,20 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
 
     return (
         <EditableGrabbable>
-            <primitive object={cloned} dispose={null} position={[x, y, z]} {...props} ref={ref} />
+            <group position={[x, y, z]} ref={ref}>
+                <primitive object={cloned} dispose={null} {...props} />
+            </group>
         </EditableGrabbable>
     )
 }
 
 const Wrapper: React.FC<{
     path: string,
-}> = ({path}) => {
+    position?: [number, number, number]
+}> = ({path, position}) => {
     return (
         <Suspense fallback={null}>
-            <Asset path={path} rotation={[Math.PI / 2, 0, 0]}/>
+            <Asset path={path} position={position} rotation={[Math.PI / 2, 0, 0]}/>
         </Suspense>
     )
 }

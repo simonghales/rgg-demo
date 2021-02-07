@@ -11,13 +11,13 @@ const Scenery: React.FC = () => {
                 <Lights/>
             </Editable>
             <Floor/>
-            <Editable id="bambooChunk" width={10} height={5} position={{
-                x: 0,
-                y: 10,
-                z: 0,
-            }}>
-                <BambooChunk/>
-            </Editable>
+            {/*<Editable id="bambooChunk" width={10} height={5} position={{*/}
+            {/*    x: 0,*/}
+            {/*    y: 10,*/}
+            {/*    z: 0,*/}
+            {/*}}>*/}
+            {/*    <BambooChunk/>*/}
+            {/*</Editable>*/}
         </>
     )
 }

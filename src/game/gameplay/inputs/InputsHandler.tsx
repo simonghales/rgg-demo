@@ -4,7 +4,7 @@ import {Vec2} from "planck-js";
 import hotkeys from "hotkeys-js";
 import {inputs, isKeyActive} from "./config";
 import {inputsRawState} from "./state";
-import {vectorToAngle} from "../../../utils/angles";
+import {degToRad, vectorToAngle} from "../../../utils/angles";
 import {angleToVector} from "../../../utils/vectors";
 
 const vector = Vec2(0, 0)
@@ -25,8 +25,8 @@ const calculateRawInput = () => {
 
         const originalAngle = vectorToAngle(horizontal, vertical)
 
-        // const rotatedAngle = originalAngle + degToRad(45)
-        const rotatedAngle = originalAngle
+        const rotatedAngle = originalAngle - degToRad(45)
+        // const rotatedAngle = originalAngle
 
         const [xVel, yVel] = angleToVector(rotatedAngle)
 

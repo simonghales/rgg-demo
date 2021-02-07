@@ -5,7 +5,7 @@ const floorColor = '#303030'
 
 const Floor: React.FC = () => {
     return (
-        <Plane args={[100, 100]}>
+        <Plane args={[100, 100]} position={[0, 0, -0.1]}>
             <meshStandardMaterial color={floorColor} />
         </Plane>
     )

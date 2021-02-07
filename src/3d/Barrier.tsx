@@ -41,7 +41,9 @@ const Barrier: React.FC = () => {
         defaultValue: 1,
     })
 
-    const [ref] = useDraggableMesh()
+    const [ref] = useDraggableMesh({
+        translationSnap: 1,
+    })
 
     if (isPlaying) {
         return <Physics x={x} y={y} width={width} height={height}/>
@@ -49,9 +51,11 @@ const Barrier: React.FC = () => {
 
     return (
         <EditableGrabbable>
-            <Box scale={[width, height, 1]} position={[x, y, z + 0.5]} ref={ref}>
-                <meshBasicMaterial color="blue" transparent opacity={0.5} />
-            </Box>
+            <group position={[x, y, z]} ref={ref}>
+                <Box scale={[width, height, 1]} position={[0, 0, 0.5]}>
+                    <meshBasicMaterial color="blue" transparent opacity={0.5} />
+                </Box>
+            </group>
         </EditableGrabbable>
     )
 }
