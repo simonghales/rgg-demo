@@ -10131,10 +10131,10 @@ rgba-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
-rgg-editor@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/rgg-editor/-/rgg-editor-0.1.11.tgz#e352dd08b19abede36eb47dbf826df046f718d50"
-  integrity sha512-tLlncpiW0AVCd3NwhQSK2M4GH5ScuZaYwVVlMOUJ4Rm+vTM/cAuIF8++PB319rDoxY+/01VcQx+jNKEHGFXKKg==
+rgg-editor@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/rgg-editor/-/rgg-editor-0.1.12.tgz#f27c8b389b4fe173fe2210b953dff0c4278b54ab"
+  integrity sha512-Ci95v8xSmZ8aflsw7X+cfFUcEwluNRueWSgvdAtNXjRjTiPXgwX5iHT9fyiwAdrfXFUShGMF8mTr7KR8cuvl9g==
   dependencies:
     leva "https://pkg.csb.dev/gsimone/leva/commit/cfe3e89d/leva"
     react-helmet "^6.1.0"
