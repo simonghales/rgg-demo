@@ -8,3 +8,7 @@ export const FloorTile: React.FC = () => {
 export const Wall: React.FC = () => {
     return <Asset path="/models/spaceship/Wall_1.glb" position={[0, 0, -0.1]}/>
 }
+
+export const Column: React.FC = () => {
+    return <Asset path="/models/spaceship/Column_1.glb" position={[0, 0, -0.1]}/>
+}

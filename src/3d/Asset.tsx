@@ -3,6 +3,7 @@ import {useGLTF} from "@react-three/drei/core/useGLTF";
 import {SkeletonUtils} from "three/examples/jsm/utils/SkeletonUtils";
 import {setMaterials, setShadows} from "../utils/models";
 import {EditableGrabbable, useDraggableMesh, useEditableProp} from "rgg-editor";
+import {degToRad} from "../utils/angles";
 
 const Asset: React.FC<JSX.IntrinsicElements['group'] & {
     path: string,
@@ -14,6 +15,33 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
             y: 0,
             z: 0,
         }})
+
+    const rotationX = useEditableProp('rotation-x', {
+        defaultValue: 0,
+        config: {
+            max: 360,
+            min: 0,
+            step: 0.01,
+        }
+    })
+
+    const rotationY = useEditableProp('rotation-y', {
+        defaultValue: 0,
+        config: {
+            max: 360,
+            min: 0,
+            step: 0.01,
+        }
+    })
+
+    const rotationZ = useEditableProp('rotation-z', {
+        defaultValue: 0,
+        config: {
+            max: 360,
+            min: 0,
+            step: 0.01,
+        }
+    })
 
     const [ref] = useDraggableMesh({
         translationSnap: 1,
@@ -28,7 +56,7 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
 
     return (
         <EditableGrabbable>
-            <group position={[x, y, z]} ref={ref}>
+            <group position={[x, y, z]} rotation={[degToRad(rotationX), degToRad(rotationY), degToRad(rotationZ)]} ref={ref}>
                 <primitive object={cloned} dispose={null} {...props} />
             </group>
         </EditableGrabbable>
