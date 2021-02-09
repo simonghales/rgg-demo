@@ -45,10 +45,10 @@ const PlayingWrapper: React.FC<{
     const [,api] = useBody(() => ({
         type: BodyType.dynamic,
         position: Vec2(x, y),
-        linearDamping: 15,
+        linearDamping: 25,
         fixtures: [
-            createCircleFixture({radius: 0.55, fixtureOptions: {
-                    density: 20,
+            createCircleFixture({radius: 0.35, fixtureOptions: {
+                    density: 30,
                 }})
         ],
     }),{
