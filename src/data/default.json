@@ -229,11 +229,29 @@
           }
         }
       }
+    },
+    "f4e05e35-abc5-49ac-8cbe-ad29b2d6c6de": {
+      "modifiedState": {
+        "position": {
+          "value": {
+            "x": 5,
+            "y": 6,
+            "z": 0
+          }
+        }
+      }
     }
   },
   "sharedComponents": {},
-  "selectedComponent": "569d3a36-bb30-4599-887e-c5e68a135726",
-  "selectedComponents": {},
+  "selectedComponent": "4ec84107-65d3-42cc-91ac-d4ebfdc1bc7c",
+  "selectedComponents": {
+    "4ec84107-65d3-42cc-91ac-d4ebfdc1bc7c": true,
+    "8754ddb1-7744-4429-b99a-85cc86d12a18": true,
+    "d4719122-1708-4d32-992f-e6332ba7377d": true,
+    "569d3a36-bb30-4599-887e-c5e68a135726": true,
+    "86cfb7b3-d4b6-4fd7-8396-de61a078d186": true,
+    "57754391-b8b3-402d-a92c-da6306168374": true
+  },
   "unsavedComponents": {
     "20d89a43-d247-4b5d-a539-0bf0498c63f7": {
       "uid": "20d89a43-d247-4b5d-a539-0bf0498c63f7",
@@ -726,12 +744,30 @@
         "f49900e7-8186-49bf-80d6-fb78a3147b10": true
       }
     },
-    "50ab6940-ecb1-45e7-8408-27277becbc06": {
+    "86cfb7b3-d4b6-4fd7-8396-de61a078d186": {
       "parent": "",
       "isOpen": false,
       "components": {
         "20d89a43-d247-4b5d-a539-0bf0498c63f7": true,
-        "3df89487-625c-4c71-a5fb-22fb326a8fcb": true
+        "3df89487-625c-4c71-a5fb-22fb326a8fcb": true,
+        "7f4689b6-d19d-461a-968b-c3c691c3b9d4": true,
+        "7ef9e45a-72b9-48ac-8505-2a17ced004df": true,
+        "a1ff0701-3188-4026-b040-82e562029d21": true,
+        "30e0271b-c2a9-4a1e-9351-b1a296c9a0f1": true,
+        "fb51c36a-7787-4640-a4a6-6eea39a81214": true,
+        "f9d61f67-dcb9-4361-8d34-9bfc93c60b6c": true
+      }
+    },
+    "4716638d-ef9a-4893-a3db-d88698a2ecd3": {
+      "parent": "",
+      "isOpen": false,
+      "components": {
+        "4ec84107-65d3-42cc-91ac-d4ebfdc1bc7c": true,
+        "8754ddb1-7744-4429-b99a-85cc86d12a18": true,
+        "d4719122-1708-4d32-992f-e6332ba7377d": true,
+        "569d3a36-bb30-4599-887e-c5e68a135726": true,
+        "86cfb7b3-d4b6-4fd7-8396-de61a078d186": true,
+        "57754391-b8b3-402d-a92c-da6306168374": true
       }
     }
   },
@@ -756,7 +792,19 @@
     "abcc1e95-4526-4d00-8702-12107b02b482": "57754391-b8b3-402d-a92c-da6306168374",
     "64f21486-6014-47d2-adbe-13621f71d616": "57754391-b8b3-402d-a92c-da6306168374",
     "f49900e7-8186-49bf-80d6-fb78a3147b10": "57754391-b8b3-402d-a92c-da6306168374",
-    "20d89a43-d247-4b5d-a539-0bf0498c63f7": "50ab6940-ecb1-45e7-8408-27277becbc06",
-    "3df89487-625c-4c71-a5fb-22fb326a8fcb": "50ab6940-ecb1-45e7-8408-27277becbc06"
+    "20d89a43-d247-4b5d-a539-0bf0498c63f7": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "3df89487-625c-4c71-a5fb-22fb326a8fcb": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "7f4689b6-d19d-461a-968b-c3c691c3b9d4": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "7ef9e45a-72b9-48ac-8505-2a17ced004df": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "a1ff0701-3188-4026-b040-82e562029d21": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "30e0271b-c2a9-4a1e-9351-b1a296c9a0f1": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "fb51c36a-7787-4640-a4a6-6eea39a81214": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "f9d61f67-dcb9-4361-8d34-9bfc93c60b6c": "86cfb7b3-d4b6-4fd7-8396-de61a078d186",
+    "4ec84107-65d3-42cc-91ac-d4ebfdc1bc7c": "4716638d-ef9a-4893-a3db-d88698a2ecd3",
+    "8754ddb1-7744-4429-b99a-85cc86d12a18": "4716638d-ef9a-4893-a3db-d88698a2ecd3",
+    "d4719122-1708-4d32-992f-e6332ba7377d": "4716638d-ef9a-4893-a3db-d88698a2ecd3",
+    "569d3a36-bb30-4599-887e-c5e68a135726": "4716638d-ef9a-4893-a3db-d88698a2ecd3",
+    "86cfb7b3-d4b6-4fd7-8396-de61a078d186": "4716638d-ef9a-4893-a3db-d88698a2ecd3",
+    "57754391-b8b3-402d-a92c-da6306168374": "4716638d-ef9a-4893-a3db-d88698a2ecd3"
   }
 }
