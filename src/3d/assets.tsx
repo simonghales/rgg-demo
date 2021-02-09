@@ -18,3 +18,9 @@ export const Column: React.FC = () => {
 }
 
 Column.displayName = 'Column'
+
+export const DoubleDoor: React.FC = () => {
+    return <Asset path="/models/spaceship/DoorDouble_Wall_SideA.glb" position={[0, 0, -0.1]}/>
+}
+
+DoubleDoor.displayName = 'Double Door'

@@ -79,9 +79,9 @@ const Player: React.FC = () => {
     }})
 
     const speed = useEditableProp('speed', {
-        defaultValue: 9,
+        defaultValue: 5,
         config: {
-            max: 15,
+            max: 10,
             min: 0,
             step: 0.01
         }
@@ -96,7 +96,7 @@ const Player: React.FC = () => {
     }, [x, y, z])
 
     const model = (
-        <Ninja rotation={[Math.PI / 2, 0, 0]} moving={moving}/>
+        <Ninja rotation={[Math.PI / 2, 0, 0]} scale={[0.6, 0.6, 0.6]} moving={moving}/>
     )
 
     if (isPlaying) {

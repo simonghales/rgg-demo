@@ -1,8 +1,10 @@
 import React from "react";
 import {registerComponent} from "rgg-editor";
 import BambooChunk from "./scenery/BambooChunk";
-import {Column, FloorTile, Wall} from "../3d/assets";
+import {Column, DoubleDoor, FloorTile, Wall} from "../3d/assets";
 import Barrier from "../3d/Barrier";
+import Ceiling from "../3d/Ceiling";
+import EditablePlane from "../3d/EditablePlane";
 
 registerComponent('bambooChunk', 'Bamboo Chunk', () => <BambooChunk/>)
 registerComponent('floorTile', 'Floor Tile', () => <FloorTile/>, {
@@ -15,9 +17,19 @@ registerComponent('wall', 'Wall', () => <Wall/>, {
         return position.map(pos => Math.round(pos)) as [number, number, number]
     }
 })
+
 registerComponent('column', 'Column', () => <Column/>, {
     transformPlace: (position: [number, number, number]) => {
         return position.map(pos => Math.round(pos)) as [number, number, number]
     }
 })
+
+registerComponent('doubleDoor', 'Double Door', () => <DoubleDoor/>, {
+    transformPlace: (position: [number, number, number]) => {
+        return position.map(pos => Math.round(pos)) as [number, number, number]
+    }
+})
+
 registerComponent('physicsBarrier', 'Physics Barrier', () => <Barrier/>)
+registerComponent('ceiling', 'Ceiling', () => <Ceiling/>)
+registerComponent('plane', 'Plane', () => <EditablePlane/>)
