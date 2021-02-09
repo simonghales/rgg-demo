@@ -60,4 +60,6 @@ const Barrier: React.FC = () => {
     )
 }
 
+Barrier.displayName = 'Physics Barrier'
+
 export default Barrier
