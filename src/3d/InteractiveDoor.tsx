@@ -43,8 +43,8 @@ const InteractiveDoor: React.FC = () => {
         <>
             <EditableGrabbable>
                 <group position={position} rotation={rotation} scale={scale} ref={ref}>
-                    <Box args={[1, 3, 6]}>
-                        <meshBasicMaterial color="red" transparent opacity={doorIsOpen ? 0.5 : 1} />
+                    <Box args={[1, 3, 6]} visible={!doorIsOpen}>
+                        <meshBasicMaterial color="red" />
                     </Box>
                 </group>
             </EditableGrabbable>
