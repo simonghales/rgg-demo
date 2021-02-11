@@ -5,6 +5,8 @@ import {Column, DoubleDoor, FloorTile, Wall} from "../3d/assets";
 import Barrier from "../3d/Barrier";
 import Ceiling from "../3d/Ceiling";
 import EditablePlane from "../3d/EditablePlane";
+import InteractiveDoor from "../3d/InteractiveDoor";
+import Terminal from "../3d/Terminal";
 
 registerComponent('bambooChunk', 'Bamboo Chunk', () => <BambooChunk/>)
 registerComponent('floorTile', 'Floor Tile', () => <FloorTile/>, {
@@ -33,3 +35,5 @@ registerComponent('doubleDoor', 'Double Door', () => <DoubleDoor/>, {
 registerComponent('physicsBarrier', 'Physics Barrier', () => <Barrier/>)
 registerComponent('ceiling', 'Ceiling', () => <Ceiling/>)
 registerComponent('plane', 'Plane', () => <EditablePlane/>)
+registerComponent('interactiveDoor', 'Interactive Door', () => <InteractiveDoor/>)
+registerComponent('terminal', 'Terminal', () => <Terminal/>)

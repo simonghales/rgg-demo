@@ -8,6 +8,7 @@ import {Object3D} from "three";
 import {Vec2} from "planck-js";
 import {useProxy} from "valtio";
 import {playerStateProxy} from "./playerState";
+import {useCollisionsHandler} from "./useCollisionsHandler";
 
 const vec2 = new Vec2(0, 0)
 
@@ -41,6 +42,7 @@ const PlayingWrapper: React.FC<{
 }> = ({x, y, speed, children}) => {
 
     const ref = useRef(new Object3D())
+    useCollisionsHandler()
 
     const [,api] = useBody(() => ({
         type: BodyType.dynamic,
@@ -54,6 +56,7 @@ const PlayingWrapper: React.FC<{
     }),{
         fwdRef: ref,
         uuid: 'player',
+        listenForCollisions: true,
     })
 
     useController(api, ref, speed)
