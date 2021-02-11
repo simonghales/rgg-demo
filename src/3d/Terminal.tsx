@@ -59,4 +59,6 @@ const Terminal: React.FC = () => {
     )
 }
 
+Terminal.displayName = 'Terminal'
+
 export default Terminal

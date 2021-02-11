@@ -55,4 +55,6 @@ const InteractiveDoor: React.FC = () => {
     )
 }
 
+InteractiveDoor.displayName = 'Interactive Door'
+
 export default InteractiveDoor
