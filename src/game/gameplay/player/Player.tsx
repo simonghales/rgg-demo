@@ -82,7 +82,7 @@ const Player: React.FC = () => {
     }})
 
     const speed = useEditableProp('speed', {
-        defaultValue: 5,
+        defaultValue: 7,
         config: {
             max: 10,
             min: 0,
