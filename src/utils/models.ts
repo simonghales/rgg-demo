@@ -54,11 +54,13 @@ export const setMaterials = (scene: any, materials: any = MATERIALS) => {
     })
 }
 
-export const setShadows = (scene: any) => {
+export const setShadows = (scene: any, setCastShadow: boolean = true) => {
     const skinnedMeshes = getSkinnedMeshes(scene)
     skinnedMeshes.forEach((mesh: any) => {
-        // eslint-disable-next-line no-param-reassign
-        mesh.castShadow = true
+        if (setCastShadow) {
+            // eslint-disable-next-line no-param-reassign
+            mesh.castShadow = true
+        }
         // eslint-disable-next-line no-param-reassign
         mesh.receiveShadow = true
     })

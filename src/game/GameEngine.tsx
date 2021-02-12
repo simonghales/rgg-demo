@@ -10,7 +10,7 @@ const physicsWorker = new PhysicsWorker()
 
 const GameEngine: React.FC = ({children}) => {
     return (
-        <Canvas>
+        <Canvas shadowMap>
             <Engine physicsWorker={physicsWorker}>
                 <InstancesProvider>
                     <EditCanvas>

@@ -1,11 +1,15 @@
 import React from "react"
-import {useEditableProp} from "rgg-editor";
+import {useEditableProp, useIsEditMode} from "rgg-editor";
 
 const Lights: React.FC = () => {
 
     const intensity = useEditableProp('intensity', {
-        defaultValue: 0.8,
+        defaultValue: 0.05,
     })
+
+    const isEditMode = useIsEditMode()
+
+    if (!isEditMode) return null
 
     return (
         <>

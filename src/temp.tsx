@@ -1,4 +1,5 @@
-import {useEditableProp} from "rgg-editor";
+import {EditableGrabbable, useDraggableMesh, useEditableProp} from "rgg-editor";
+import React from "react";
 
 export const useDefaultTransformControls = (): {
     position: [number, number, number],
@@ -63,4 +64,23 @@ export const useDefaultTransformControls = (): {
         ]
     }
 
+}
+
+export const SelectableGroup: React.FC = ({children}) => {
+
+    const {
+        position,
+        rotation,
+        scale,
+    } = useDefaultTransformControls()
+
+    const [ref] = useDraggableMesh()
+
+    return (
+        <EditableGrabbable>
+            <group position={position} rotation={rotation} scale={scale} ref={ref}>
+                {children}
+            </group>
+        </EditableGrabbable>
+    )
 }

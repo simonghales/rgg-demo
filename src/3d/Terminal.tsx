@@ -1,7 +1,7 @@
 import React from "react"
 import {Box} from "@react-three/drei";
 import {EditableGrabbable, useDraggableMesh, useIsEditMode} from "rgg-editor";
-import {useDefaultTransformControls} from "../temp";
+import {SelectableGroup, useDefaultTransformControls} from "../temp";
 import {BodyType, createBoxFixture, useBody} from "react-three-game-engine";
 import {Vec2} from "planck-js";
 import {CollisionGroupType} from "../game/gameplay/collisions";
@@ -35,23 +35,17 @@ const Terminal: React.FC = () => {
 
     const {
         position,
-        rotation,
-        scale,
     } = useDefaultTransformControls()
-
-    const [ref] = useDraggableMesh()
 
     const isPlaying = !useIsEditMode()
 
     return (
         <>
-            <EditableGrabbable>
-                <group position={position} rotation={rotation} scale={scale} ref={ref}>
-                    <Box args={[1, 1, 2]}>
-                        <meshBasicMaterial color="blue" />
-                    </Box>
-                </group>
-            </EditableGrabbable>
+            <SelectableGroup>
+                <Box args={[1, 1, 2]}>
+                    <meshBasicMaterial color="blue" />
+                </Box>
+            </SelectableGroup>
             {
                 (isPlaying) && <Physics x={position[0]} y={position[1]} width={1} height={1}/>
             }

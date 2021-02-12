@@ -1,9 +1,14 @@
-import React, {Suspense, useState} from "react"
+import React, {Suspense, useEffect, useState} from "react"
 import {useGLTF} from "@react-three/drei/core/useGLTF";
 import {SkeletonUtils} from "three/examples/jsm/utils/SkeletonUtils";
 import {setMaterials, setShadows} from "../utils/models";
 import {EditableGrabbable, useDraggableMesh, useEditableProp} from "rgg-editor";
 import {degToRad} from "../utils/angles";
+import {Mesh, MeshBasicMaterial, Object3D} from "three";
+
+const invisibleMaterial = new MeshBasicMaterial()
+invisibleMaterial.colorWrite = false
+invisibleMaterial.depthWrite = false
 
 const Asset: React.FC<JSX.IntrinsicElements['group'] & {
     path: string,
@@ -43,6 +48,10 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
         }
     })
 
+    const visible = useEditableProp('visible', {
+        defaultValue: true,
+    })
+
     const [ref] = useDraggableMesh({
         translationSnap: 1,
     })
@@ -53,6 +62,24 @@ const Asset: React.FC<JSX.IntrinsicElements['group'] & {
         setShadows(clonedScene)
         return clonedScene
     })
+
+    useEffect(() => {
+        if (visible) return
+        cloned.traverse((object: Object3D) => {
+            if (object.type != 'Mesh') return
+            const mesh = object as Mesh
+            if (!mesh.material) return
+            if (Array.isArray(mesh.material)) {
+                mesh.material.forEach((material, index) => {
+                    // @ts-ignore
+                    mesh.material[index] = invisibleMaterial
+                })
+            } else {
+                mesh.material = invisibleMaterial
+            }
+
+        })
+    }, [cloned, visible])
 
     return (
         <EditableGrabbable>
