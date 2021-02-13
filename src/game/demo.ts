@@ -3,7 +3,7 @@ import {loadState} from "rgg-editor";
 import defaultData from "../data/default.json"
 
 const key = 'RGG_DEMO_VERSION'
-const demoVersion = '7'
+const demoVersion = '8'
 const getStoredDemoVersion = () => {
     return get(key) ?? ''
 }

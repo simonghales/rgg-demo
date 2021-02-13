@@ -34,7 +34,9 @@
     "start": "react-app-rewired start",
     "build": "CI='' react-app-rewired build && cp _redirects build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "react-spring-issue-1078": "find node_modules -path \\*@react-spring/\\*/package.json -exec sed -i.bak 's/\"sideEffects\": false/\"sideEffects\": true/g' {} +",
+    "postinstall": "npm run react-spring-issue-1078"
   },
   "eslintConfig": {
     "extends": [
