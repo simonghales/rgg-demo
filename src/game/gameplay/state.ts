@@ -10,9 +10,9 @@ export const doorsStateProxy = proxy<{
     doors: {},
 })
 
-export const setDoorOpen = (doorId: string) => {
+export const setDoorOpen = (doorId: string, set: (currentState: boolean) => boolean) => {
     doorsStateProxy.doors[doorId] = {
-        open: true,
+        open: set(doorsStateProxy.doors[doorId]?.open ?? false),
     }
 }
 

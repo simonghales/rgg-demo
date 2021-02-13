@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import {Box} from "@react-three/drei";
 import {EditableGrabbable, useDraggableMesh, useIsEditMode} from "rgg-editor";
 import {SelectableGroup, useDefaultTransformControls} from "../temp";
@@ -6,6 +6,8 @@ import {BodyType, createBoxFixture, useBody} from "react-three-game-engine";
 import {Vec2} from "planck-js";
 import {CollisionGroupType} from "../game/gameplay/collisions";
 import {useIsDoorOpen} from "../game/gameplay/state";
+import Asset from "./Asset";
+import Computer from "./Computer";
 
 const Physics: React.FC<{
     x: number,
@@ -42,9 +44,9 @@ const Terminal: React.FC = () => {
     return (
         <>
             <SelectableGroup>
-                <Box args={[1, 1, 2]}>
-                    <meshBasicMaterial color="blue" />
-                </Box>
+                <Suspense fallback={null}>
+                    <Computer rotation={[Math.PI / 2, 0 ,0]}/>
+                </Suspense>
             </SelectableGroup>
             {
                 (isPlaying) && <Physics x={position[0]} y={position[1]} width={1} height={1}/>

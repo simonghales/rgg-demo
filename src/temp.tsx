@@ -1,5 +1,6 @@
 import {EditableGrabbable, useDraggableMesh, useEditableProp} from "rgg-editor";
 import React from "react";
+import {degToRad} from "./utils/angles";
 
 export const useDefaultTransformControls = (): {
     position: [number, number, number],
@@ -53,9 +54,9 @@ export const useDefaultTransformControls = (): {
             z,
         ],
         rotation: [
-            rotationX,
-            rotationY,
-            rotationZ,
+            degToRad(rotationX),
+            degToRad(rotationY),
+            degToRad(rotationZ),
         ],
         scale: [
             scaleX,

@@ -15,7 +15,7 @@ export const useCollisionsHandler = () => {
     const onCollideStart = useCallback(({uuid, groupType, ...data}: CollisionData) => {
         switch (groupType) {
             case CollisionGroupType.TERMINAL:
-                setDoorOpen('door')
+                setDoorOpen('door', (open: boolean) => !open)
                 break;
         }
     }, [])
