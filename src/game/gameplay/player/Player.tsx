@@ -59,6 +59,10 @@ const PlayingWrapper: React.FC<{
         listenForCollisions: true,
     })
 
+    useEffect(() => {
+        api.setPosition(Vec2(x, y))
+    }, [x, y])
+
     useController(api, ref, speed)
 
     useStoreMesh('player', ref.current as Object3D)
@@ -101,7 +105,7 @@ const Player: React.FC = () => {
     const model = (
         <group>
             <Ninja rotation={[Math.PI / 2, 0, 0]} scale={[0.6, 0.6, 0.6]} moving={moving}/>
-            <pointLight intensity={0.05} distance={5}/>
+            <pointLight intensity={0.075} distance={5} position={[0, 0, 1.5]}/>
         </group>
     )
 

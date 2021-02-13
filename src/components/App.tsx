@@ -1,15 +1,26 @@
 import React from 'react';
-import { Editor } from 'rgg-editor';
-import Game from '../game/Game';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 import { GlobalStyle } from '../ui/global';
+import Main from "../screens/Main";
 
 function App() {
   return (
       <>
           <GlobalStyle/>
-          <Editor>
-              <Game/>
-          </Editor>
+          <Router>
+              <Switch>
+                  <Route path="/play">
+                      <Main playOnly/>
+                  </Route>
+                  <Route path="/">
+                      <Main/>
+                  </Route>
+              </Switch>
+          </Router>
       </>
   );
 }
