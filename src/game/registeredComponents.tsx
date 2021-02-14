@@ -8,6 +8,7 @@ import EditablePlane from "../3d/EditablePlane";
 import InteractiveDoor from "../3d/InteractiveDoor";
 import Terminal from "../3d/Terminal";
 import PointLight from "../3d/PointLight";
+import Collider from "../3d/Collider";
 
 registerComponent('bambooChunk', 'Bamboo Chunk', () => <BambooChunk/>)
 registerComponent('floorTile', 'Floor Tile', () => <FloorTile/>, {
@@ -39,3 +40,4 @@ registerComponent('plane', 'Plane', () => <EditablePlane/>)
 registerComponent('interactiveDoor', 'Interactive Door', () => <InteractiveDoor/>)
 registerComponent('terminal', 'Terminal', () => <Terminal/>)
 registerComponent('pointLight', 'Point Light', () => <PointLight/>)
+registerComponent('collider', 'Collider', () => <Collider/>)

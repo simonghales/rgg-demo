@@ -72,14 +72,13 @@ export const SelectableGroup: React.FC = ({children}) => {
     const {
         position,
         rotation,
-        scale,
     } = useDefaultTransformControls()
 
     const [ref] = useDraggableMesh()
 
     return (
         <EditableGrabbable>
-            <group position={position} rotation={rotation} scale={scale} ref={ref}>
+            <group position={position} rotation={rotation} ref={ref}>
                 {children}
             </group>
         </EditableGrabbable>

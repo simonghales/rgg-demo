@@ -1,5 +1,36 @@
 import {proxy, useProxy} from "valtio";
 
+export const roomsStateProxy = proxy<{
+    rooms: {
+        [key: string]: {
+            meshId: string,
+            inside: boolean,
+        }
+    }
+}>({
+    rooms: {},
+})
+
+export const setInsideRoom = (roomId: string, inside: boolean, meshId?: string) => {
+    roomsStateProxy.rooms[roomId] = {
+        ...(roomsStateProxy.rooms[roomId] ?? {}),
+        ...(meshId ? {meshId} : {}),
+        inside,
+    }
+}
+
+export const useActiveRoom = () => {
+    const rooms = useProxy(roomsStateProxy).rooms
+    const activeRoom = Object.entries(rooms).find(([id, room]) => {
+        return room.inside
+    })
+    return activeRoom ? activeRoom[0] : ''
+}
+
+export const useIsInsideRoom = () => {
+    return !!useActiveRoom()
+}
+
 export const doorsStateProxy = proxy<{
     doors: {
         [key: string]: {

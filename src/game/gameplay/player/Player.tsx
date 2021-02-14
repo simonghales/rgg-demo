@@ -1,4 +1,4 @@
-import { Sphere } from "@react-three/drei"
+import {Box, Sphere } from "@react-three/drei"
 import React, {useEffect, useRef} from "react"
 import {EditableGrabbable, useDraggableMesh, useEditableProp, useIsEditMode} from "rgg-editor";
 import Ninja from "../../../3d/Ninja/Ninja";
@@ -9,6 +9,10 @@ import {Vec2} from "planck-js";
 import {useProxy} from "valtio";
 import {playerStateProxy} from "./playerState";
 import {useCollisionsHandler} from "./useCollisionsHandler";
+import PlayerTorch from "./PlayerTorch";
+import InteractivePlane from "./InteractivePlane";
+import PlayerTorchTarget from "./PlayerTorchTarget";
+import {useIsInsideRoom} from "../state";
 
 const vec2 = new Vec2(0, 0)
 
@@ -42,6 +46,7 @@ const PlayingWrapper: React.FC<{
 }> = ({x, y, speed, children}) => {
 
     const ref = useRef(new Object3D())
+    const rotationRef = useRef(null as unknown as Object3D)
     useCollisionsHandler()
 
     const [,api] = useBody(() => ({
@@ -63,14 +68,19 @@ const PlayingWrapper: React.FC<{
         api.setPosition(Vec2(x, y))
     }, [x, y])
 
-    useController(api, ref, speed)
+    useController(api, rotationRef, speed)
 
     useStoreMesh('player', ref.current as Object3D)
 
     return (
         <>
             <group ref={ref}>
-                {children}
+                <group ref={rotationRef}>
+                    {children}
+                </group>
+                <InteractivePlane/>
+                <PlayerTorch/>
+                <PlayerTorchTarget/>
             </group>
         </>
     )

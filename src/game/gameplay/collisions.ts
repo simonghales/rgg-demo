@@ -1,4 +1,5 @@
 export enum CollisionGroupType {
-    TERMINAL,
-    PLAYER,
+    TERMINAL = 'TERMINAL',
+    PLAYER = 'PLAYER',
+    ROOM = 'ROOM',
 }

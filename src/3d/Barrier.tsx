@@ -52,7 +52,7 @@ const Barrier: React.FC = () => {
     return (
         <EditableGrabbable>
             <group position={[x, y, z]} ref={ref}>
-                <Box scale={[width, height, 1]} position={[0, 0, 0.5]}>
+                <Box scale={[width, height, 1]} position={[0, 0, 0.5]} layers={[31]}>
                     <meshBasicMaterial color="blue" transparent opacity={0.5} />
                 </Box>
             </group>

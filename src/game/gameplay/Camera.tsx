@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useRef} from "react"
-import {Object3D, PerspectiveCamera as OriginalPerspectiveCamera} from "three"
+import React, {MutableRefObject, useCallback, useEffect, useRef} from "react"
+import {Object3D, PerspectiveCamera as OriginalPerspectiveCamera, Vector3} from "three"
 import {PerspectiveCamera} from "@react-three/drei";
 import {
     Editable,
@@ -14,6 +14,71 @@ import {CameraHelper} from "three";
 import {useFrame} from "react-three-fiber";
 import {useStoredMesh} from "react-three-game-engine";
 import {lerp} from "../../utils/numbers";
+import {proxy, useProxy} from "valtio";
+import {useSpring} from "@react-spring/three";
+
+export const cameraProxyState = proxy<{
+    anchorTarget: Object3D | null,
+}>({
+    anchorTarget: null,
+})
+
+const anchorPosition = new Vector3()
+
+const useCameraFollow = (groupRef: MutableRefObject<Object3D>, cameraRef: MutableRefObject<Object3D>) => {
+
+    const followUid = useEditableProp('followUid', {
+        defaultValue: 'player',
+    })
+
+    const anchorTarget = useProxy(cameraProxyState).anchorTarget
+
+    const followMesh = useStoredMesh(followUid)
+
+    const {anchorWeight} = useSpring({
+        anchorWeight: !!anchorTarget ? 1 : 0,
+        config: {
+            friction: 48,
+        }
+    })
+
+    const onFrame = useCallback((state: any, delta: number) => {
+        if (followMesh) {
+            let amount = delta * 16
+            amount = amount > 1 ? 1 : amount
+
+            if (anchorTarget) {
+                anchorTarget.getWorldPosition(anchorPosition)
+            }
+
+            const anchorX = anchorPosition.x
+            const anchorY = anchorPosition.y
+            const anchorZ = anchorPosition.z
+
+            const followX = followMesh.position.x
+            const followY = followMesh.position.y
+            const followZ = followMesh.position.z
+
+            const anchorLerpAmount = anchorWeight.get()
+
+            const targetX = lerp(followX, anchorX, anchorLerpAmount)
+            const targetY = lerp(followY, anchorY, anchorLerpAmount)
+            const targetZ = lerp(followZ, anchorZ, anchorLerpAmount)
+
+            const finalX = lerp(groupRef.current.position.x, targetX, amount)
+            const finalY = lerp(groupRef.current.position.y, targetY, amount)
+            const finalZ = lerp(groupRef.current.position.z, targetZ, amount)
+
+            groupRef.current.position.x = finalX
+            groupRef.current.position.y = finalY
+            groupRef.current.position.z = finalZ
+            cameraRef.current.lookAt(finalX, finalY, finalZ + 1.5)
+        }
+    }, [followMesh, anchorTarget])
+
+    useFrame(onFrame)
+
+}
 
 const Camera: React.FC = () => {
 
@@ -24,6 +89,7 @@ const Camera: React.FC = () => {
     const [ref] = useDraggableMesh()
     const setDefaultCamera = useSetDefaultCamera()
     const isEditMode = useIsEditMode()
+    useCameraFollow(groupRef, cameraRef)
 
     const {x, y, z} = useEditableProp('position', {defaultValue: {
             x: 20,
@@ -34,15 +100,10 @@ const Camera: React.FC = () => {
     const fov = useEditableProp('fov', {
         defaultValue: 30,
     })
-    const followUid = useEditableProp('followUid', {
-        defaultValue: 'player',
-    })
-
-    const followMesh = useStoredMesh(followUid)
 
     useEffect(() => {
         cameraRef.current.up.set(0,0,1)
-        cameraRef.current.lookAt(0, 0, 1.5)
+        cameraRef.current.lookAt(groupRef.current.position.x, groupRef.current.position.y, groupRef.current.position.z + 1.5)
         setMainCamera(cameraRef.current)
     }, [])
 
@@ -50,22 +111,6 @@ const Camera: React.FC = () => {
         cameraRef.current.fov = fov
         cameraRef.current.updateProjectionMatrix()
     }, [fov])
-
-    const onFrame = useCallback((state: any, delta: number) => {
-        if (followMesh) {
-            let amount = delta * 16
-            amount = amount > 1 ? 1 : amount
-            const targetX = lerp(groupRef.current.position.x, followMesh.position.x, amount)
-            const targetY = lerp(groupRef.current.position.y, followMesh.position.y, amount)
-            const targetZ = lerp(groupRef.current.position.z, followMesh.position.z, amount)
-            cameraRef.current.lookAt(targetX, targetY, targetZ + 1.5)
-            groupRef.current.position.x = targetX
-            groupRef.current.position.y = targetY
-            groupRef.current.position.z = targetZ
-        }
-    }, [followMesh, isEditMode])
-
-    useFrame(onFrame)
 
     useEffect(() => {
         if (isEditMode) return
