@@ -21,7 +21,7 @@ const PlayerTorch: React.FC = () => {
         if (!ref.current) return
         ref.current.target = target
 
-        subscribe(playerTorchTargetStateProxy.position, () => {
+        return subscribe(playerTorchTargetStateProxy.position, () => {
             if (!groupRef.current) return
             const {x, y} = playerTorchTargetStateProxy.position
             const magnitude = getVectorMagnitude(x, y)

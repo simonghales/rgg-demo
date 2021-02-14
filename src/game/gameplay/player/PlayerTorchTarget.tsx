@@ -19,7 +19,7 @@ const PlayerTorchTarget: React.FC = () => {
 
     useEffect(() => {
 
-        subscribe(playerTorchTargetStateProxy.position, () => {
+        return subscribe(playerTorchTargetStateProxy.position, () => {
             ref.current.position.x = playerTorchTargetStateProxy.position.x
             ref.current.position.y = playerTorchTargetStateProxy.position.y
             ref.current.position.z = 0
